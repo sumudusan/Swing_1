@@ -218,4 +218,241 @@ public class Main
     }
 }
  */
+//-----------------------------------------------------------------------------------
+// 6.CheckBox
+/*
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+class MyFrame extends JFrame implements ActionListener
+{
+    JCheckBox checkBox1,checkBox2;
+    JTextField textField;
+MyFrame()
+{
+checkBox1=new JCheckBox("Bold");
+checkBox2=new JCheckBox("Italic");
+textField=new JTextField();
+textField.setColumns(20);
+
+this.add(checkBox1);
+this.add(checkBox2);
+this.add(textField);
+this.setLayout(new FlowLayout());
+
+checkBox1.addActionListener(this);
+checkBox2.addActionListener(this);
+}
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+     int bold=0;
+     int italic=0;
+
+    if (checkBox1.isSelected())
+    {
+        bold=Font.BOLD;
+    }
+    if (checkBox2.isSelected())
+    {
+        italic=Font.ITALIC;
+    }
+    textField.setFont(new Font("Times New Roman",bold | italic,12));
+    }
+}
+
+
+public class Main
+{
+    public static void main(String [] args)
+    {
+MyFrame frame=new MyFrame();
+frame.setTitle("Application");
+frame.setSize(420,420);
+frame.setVisible(true);
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+ */
+//------------------------------------------------------------------------------------------------------
+// 7.Radio Button
+/*
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+class MyFrame extends JFrame implements ActionListener
+{
+
+    JRadioButton radioButton1;
+    JRadioButton radioButton2;
+    JRadioButton radioButton3;
+    JLabel label;
+
+    MyFrame()
+    {
+    ButtonGroup group=new ButtonGroup();
+    radioButton1=new JRadioButton("Male");
+    radioButton2=new JRadioButton("Female");
+    radioButton3=new JRadioButton("Other");
+    label=new JLabel("Not Selected");
+
+    radioButton1.addActionListener(this);
+    radioButton2.addActionListener(this);
+    radioButton3.addActionListener(this);
+
+        group.add(radioButton1);
+        group.add(radioButton2);
+        group.add(radioButton3);
+
+        this.add(radioButton1);
+        this.add(radioButton2);
+        this.add(radioButton3);
+        this.add(label);
+    this.setLayout(new FlowLayout());
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+if(radioButton1.isSelected())
+{
+   label.setText(radioButton1.getText());
+}
+if (radioButton2.isSelected())
+{
+    label.setText(radioButton2.getText());
+}
+if (radioButton3.isSelected())
+{
+    label.setText(radioButton3.getText());
+}
+    }
+}
+public class Main
+{
+    public static void main(String [] args)
+    {
+     MyFrame frame=new MyFrame();
+     frame.setTitle("Application");
+     frame.setSize(420,420);
+     frame.setVisible(true);
+     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+ */
+//---------------------------------------------------------------------------------------------------------
+//     8.Listbox  , Combobox
+/*
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+class MyFrame extends JFrame implements ListSelectionListener, ActionListener
+{
+JList listbox;
+JComboBox combobox;
+
+     MyFrame()
+     {
+     String[] languages={"java","python","c++","c#"};
+    listbox=new JList<>(languages);
+    listbox.setVisibleRowCount(3);
+    listbox.addListSelectionListener(this);
+
+    combobox=new JComboBox<>(languages);
+    combobox.addActionListener(this);
+
+    this.add(listbox);
+    this.add(new JScrollPane(listbox));
+    this.add(combobox);
+    this.setLayout(new FlowLayout());
+      }
+
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+    if (e.getSource()==listbox)
+    {
+        System.out.println(listbox.getSelectedValuesList());
+    }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource()==combobox)
+        {
+            System.out.println(combobox.getSelectedItem() );
+        }
+    }
+}
+
+public class Main
+{
+    public static void main(String [] args)
+    {
+        MyFrame frame=new MyFrame();
+        frame.setTitle("application");
+        frame.setSize(420,420);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
+}
+ */
+//-----------------------------------------------------------------------------------------------
+//    9.layouts (Boaderlayout,FlowLayout)
+/*
+import javax.swing.*;
+import java.awt.*;
+
+class MyFrame extends JFrame
+{
+    JButton b1,b2,b3,b4,b5;
+    MyFrame()
+    {
+        b1 =new JButton("Button 1");
+        b2 =new JButton("Button 2");
+        b3 =new JButton("Button 3");
+        b4 =new JButton("Button 4");
+        b5 =new JButton("Button 5");
+
+        //this.setLayout(new BorderLayout());
+        //this.add(b1,BorderLayout.NORTH);
+        //this.add(b2,BorderLayout.EAST);
+        //this.add(b3,BorderLayout.WEST);
+        //this.add(b4,BorderLayout.SOUTH);
+
+
+import javax.swing.*;
+import java.awt.*;
+
+FlowLayout f=new FlowLayout();
+        f.setAlignment(FlowLayout.CENTER);
+        f.setHgap(30);
+        f.setVgap(30);
+        this.setLayout(f);
+        this.add(b1);
+        this.add(b2);
+        this.add(b3);
+        this.add(b4);
+        this.add(b5);
+    }
+}
+public class Main
+{
+    public static void main(String []args)
+    {
+        MyFrame frame=new MyFrame();
+        frame.setTitle("Application");
+        frame.setSize(420,420);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+*/
+//---------------------------------------------------------------------------------------------------
+//      10.Panels
 
