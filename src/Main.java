@@ -455,4 +455,119 @@ public class Main
 */
 //---------------------------------------------------------------------------------------------------
 //      10.Panels
+/*
+import javax.swing.*;
+import java.awt.*;
 
+class MyFrame extends JFrame
+{
+    JButton b1,b2,b3,b4;
+    JPanel panel1,panel2;
+    MyFrame()
+    {
+        b1=new JButton("1");
+        b2=new JButton("2");
+        b3=new JButton("3");
+        b4=new JButton("4");
+
+        this.setLayout(new BorderLayout());
+        this.add(b1, BorderLayout.NORTH);
+        this.add(b2, BorderLayout.EAST);
+        this.add(b3, BorderLayout.WEST);
+        this.add(b4, BorderLayout.SOUTH);
+
+        panel1=new JPanel();
+        panel1.setLayout(new FlowLayout());
+        panel1.setBackground(Color.YELLOW);
+        panel1.add(b1);
+
+        panel2=new JPanel();
+        panel2.setLayout(new GridLayout(2,1));
+        panel2.add(b2);
+        panel2.add(b3);
+
+        this.add(panel1, BorderLayout.CENTER);
+        this.add(panel2, BorderLayout.EAST);
+
+        //panel1.add(button);
+    }
+}
+
+public class Main
+{
+    public static void main(String args[])
+    {
+       MyFrame frame=new MyFrame();
+       frame.setTitle("Application");
+       frame.setVisible(true);
+       frame.setSize(420,420);
+       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+ */
+//----------------------------------------------------------------------------------------------------
+//   11.Menu Bar
+/*
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+class MyFrame extends JFrame implements ActionListener
+{
+    //menu>filemenu,helpMenu
+    //helpmenu>About us,Contact us
+    JMenuBar menuBar;
+    JMenu fileMenu, helpMenu;
+    JMenuItem newItem,openItem,closeItem,aboutItem,contactItem;
+
+    MyFrame()
+    {
+        menuBar=new JMenuBar();
+
+        fileMenu=new JMenu("File");
+        helpMenu=new JMenu("Help");
+
+        newItem=new JMenuItem("New");
+        openItem=new JMenuItem("Open");
+        closeItem=new JMenuItem("Close");
+        aboutItem=new JMenuItem("About us");
+        contactItem=new JMenuItem("Contact us");
+
+        newItem.addActionListener(this);
+        openItem.addActionListener(this);
+        closeItem.addActionListener(this);
+        aboutItem.addActionListener(this);
+        contactItem.addActionListener(this);
+
+        fileMenu.add(newItem);
+        fileMenu.add(openItem);
+        fileMenu.add(closeItem);
+        helpMenu.add(aboutItem);
+        helpMenu.add(contactItem);
+
+        menuBar.add(fileMenu);
+        menuBar.add(helpMenu);
+
+        this.setJMenuBar(menuBar);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource()==closeItem)
+        {
+            System.exit(0);
+        }
+    }
+}
+ public class Main
+{
+    public static void main(String []args)
+    {
+       MyFrame frame=new MyFrame();
+       frame.setTitle("Application");
+       frame.setVisible(true);
+       frame.setSize(420,420);
+       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+ */
